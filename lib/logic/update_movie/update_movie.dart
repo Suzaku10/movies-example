@@ -183,7 +183,8 @@ abstract class UpdateMovieBase with Store {
           var selectedItem = selected
               .firstWhereOrNull((element) => element['id'] == item!['id']);
 
-          if (item!['status'] != selectedItem!['status']) {
+          if (selectedItem != null &&
+              (item!['status'] != selectedItem['status'])) {
             res = false;
             break;
           }
